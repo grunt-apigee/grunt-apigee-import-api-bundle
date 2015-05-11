@@ -1,5 +1,5 @@
 /*
- * grunt-apigee-kvm
+ * grunt-apigee-import-api-bundle
  * https://github.com/grunt-apigee/grunt-apigee-kvm
  *
  * Copyright (c) 2015 dzuluaga
@@ -9,9 +9,10 @@
  'use strict';
 
  module.exports = function(grunt) {
-
+  var apigee_conf = require('./grunt/apigee-config.js');
   // Project configuration.
   grunt.initConfig({
+    apigee_profiles : apigee_conf.profiles(grunt),
     jshint: {
       all: [
       'Gruntfile.js',
@@ -28,39 +29,12 @@
       tests: ['tmp']
     },
 
-    // Configuration to be run (and then tested).
-    apigee_kvm: {
-        "testmyapi-test" : {
-          options: {
-            type: "env"
-          },
-          files: [{src: ['config/kvm/testmyapi/testmyapi-test/*.json']},
-          ]
-        },
-        "testmyapi-prod" : {
-          options: {
-            type: "env"
-          },
-          files: [{src: ['config/kvm/testmyapi/testmyapi-prod/*.json']},
-          ]
-        },
-        "testmyapi" : {
-          options: {
-            type: "org"
-          },
-          files: [{src: ['config/kvm/testmyapi/*.json']},
-          ]
-        }
-    },
-
     // Unit tests.
     nodeunit: {
       tests: ['test/*_test.js']
     }
 
   });
-  var env = grunt.option('env') || 'test';
-  var org = grunt.option('org') || 'testmyapi';
   // Actually load this plugin's task(s).
   grunt.loadTasks('tasks');
 
@@ -71,8 +45,8 @@
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('importKVMs', ['apigee_kvm:' + org + '-' + env, 'apigee_kvm:' + org]);
-  grunt.registerTask('test', ['clean', 'importKVMs'/*, 'nodeunit'*/]);
+  grunt.registerTask('import_api_bundle', ['apigee_import_api_bundle']);
+  grunt.registerTask('test', ['clean', 'import_api_bundle'/*, 'nodeunit'*/]);
 
 
 

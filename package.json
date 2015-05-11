@@ -1,23 +1,23 @@
 {
-  "name": "grunt-apigee-kvm",
-  "description": "Grunt plugin to import KVMs per API proxy.",
-  "version": "0.1.0",
-  "homepage": "https://github.com/grunt-apigee/grunt-apigee-kvm",
+  "name": "grunt-apigee-import-api-bundle",
+  "description": "Grunt plugin to import API bundles.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/grunt-apigee/grunt-apigee-import-api-bundle",
   "author": {
     "name": "dzuluaga",
     "email": "dfzuluaga@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:grunt-apigee/grunt-apigee-kvm.git"
+    "url": "git@github.com:grunt-apigee/grunt-apigee-import-api-bundle.git"
   },
   "bugs": {
-    "url": "https://github.com/grunt-apigee/grunt-apigee-kvm/issues"
+    "url": "https://github.com/grunt-apigee/grunt-apigee-import-api-bundle/issues"
   },
   "licenses": [
     {
       "type": "Apache-2.0",
-      "url": "https://github.com/grunt-apigee/grunt-apigee-kvm/blob/master/LICENSE-Apache-2.0"
+      "url": "https://github.com/grunt-apigee/grunt-apigee-import-api-bundle/blob/master/LICENSE-Apache-2.0"
     }
   ],
   "engines": {
@@ -36,9 +36,14 @@
     "grunt": "~0.4.5"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "apigee",
+    "api",
+    "import",
+    "bundle"
   ],
   "dependencies": {
+    "apigee-sdk-mgmt-api": "^1.1.2",
     "curl-cmd": "0.0.0"
   }
 }
